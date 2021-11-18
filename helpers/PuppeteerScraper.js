@@ -57,9 +57,7 @@ class PuppeteerScraper extends BaseScraper {
    * @returns {object} - Cheerio instance
    */
   async fetchDOMModel() {
-    const browser = await puppeteer.launch({
-      headless: true
-    });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.setRequestInterception(true);
 
